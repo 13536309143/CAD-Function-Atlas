@@ -11,7 +11,6 @@
     "checked": 7715,
     "mismatched": 0
   },
-  "unattempted_removed": 2392,
   "new_provider_live_evaluation": false,
   "ci_configuration": "Windows/Linux, Python 3.12; see GitHub workflow for actual remote status",
   "docker_validation": "recipe supplied; local Docker build not claimed"

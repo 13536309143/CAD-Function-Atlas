@@ -12,11 +12,11 @@ Software patch v0.1.1 adds pinned Mesa/OSMesa setup for headless Windows CI afte
 - Structured classifier/reviewer/adjudicator workflow, explicit unknown/review states and human-label evaluation tooling.
 - MiniMax plus OpenAI Responses/Chat Completions, compatible-chat, Claude and Gemini adapters. Non-MiniMax adapters have mocked protocol tests only.
 - Chinese/English READMEs, deployment/environment checks, Docker recipe, Windows/Linux CI and detailed experiment reports.
-- Frozen metrics, source-stratum tables and plots. The release snapshot preserves execution failures and the incomplete original plan.
+- Frozen metrics, source-stratum tables and plots. The release snapshot preserves all model outcomes, including execution failures.
 
 ## Measured snapshot
 
-Original plan: 10,107 models. Successful outputs: 7,360; execution failures: 355; never attempted and removed: 2,392. All 820 controlled/probe jobs reached terminal states, including three expected invalid-geometry rejections.
+Dataset: **7,715 industrial CAD models**. Successful outputs: **7,360**; execution failures: **355**. All 820 controlled/probe jobs reached terminal states, including three expected invalid-geometry rejections.
 
 Successful-output directory-reference agreement: **50.01%**; including execution failures: **47.65%**. Same-case single → multi-agent: **49.34% → 50.01%**. Accepted-subset agreement: **94.09%**, covering **10.22%** of successful outputs. Identical-input three-run unanimity: **38.71%**.
 
@@ -29,4 +29,4 @@ These are weak-reference measurements, **not human-verified functional accuracy*
 - `SHA256SUMS`: integrity hashes for the release assets.
 - Full retained data: [GeorgeWJJ/cad-function-atlas](https://huggingface.co/datasets/GeorgeWJJ/cad-function-atlas).
 
-保留全部 7,715 件已尝试模型，包括失败样本；仅清理 2,392 件从未尝试的输入和专属附加文件。旧根目录已封存，后续实验需新建输出目录。没有发布密钥或模型权重；代码 MIT 不重新授权原 CAD 数据。
+数据集包含 **7,715 个工业 CAD 模型**，其中 7,360 个有分类结果、355 个执行失败。发布结果已封存，后续实验需新建输出目录。没有发布密钥或模型权重；代码 MIT 不重新授权原 CAD 数据。

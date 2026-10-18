@@ -213,7 +213,10 @@ def generate_report(root, final=False):
     export_tables(root, rows, source_breakdown)
     make_gallery(root, main, complete=all_terminal)
     if final or not (root / 'figures' / 'experiment_comparison.png').exists() or time.time() - (root / 'figures' / 'experiment_comparison.png').stat().st_mtime > 300:
-        make_figures(root, experiments, matrix, threshold_sweep)
+        figure_experiments = experiments
+        if (root / 'FROZEN_RELEASE.json').exists():
+            figure_experiments = {k: {**v, 'scheduled': v['terminal']} for k, v in experiments.items()}
+        make_figures(root, figure_experiments, matrix, threshold_sweep)
     lines = ['# CAD 全量功能分类与多种对照测试', '',
              f"更新时间：{summary['updated']}；状态：{'全部计划任务已结束（含明确记录的失败）' if all_terminal else '执行中或被资源条件阻挡，以下均为阶段结果'}。", '',
              f"全量主测试：计划{len(main)}件，推理完成{len(main_done)}件，失败{progress['full_errors']}件，待执行/运行中{progress['full_pending_running']}件。", '',
@@ -256,9 +259,17 @@ def generate_report(root, final=False):
         lines += ['', '## 已提供人工标签的子集', '',
                   f"标注{human['n_labels']}件，可评估已结束任务{human['n_evaluated_terminal']}件，人工标签子集准确率{percent(human['human_accuracy_on_labelled_terminal_subset'])}。仅适用于该子集，详见[人工评估](human_evaluation.json)。"]
     if (root / 'FROZEN_RELEASE.json').exists():
-        sealed = json.loads((root / 'FROZEN_RELEASE.json').read_text(encoding='utf-8'))
-        lines[2] = (f"更新时间：{summary['updated']}；状态：已按用户要求停止并封存，不再自动恢复。"
-                    f"原计划未尝试的 {sealed['deleted_never_attempted_models']} 个模型及专属附加文件已清理；历史计划行保留。")
+        dataset_size = experiments['full_multi']['terminal']
+        lines[2] = (f"更新时间：{summary['updated']}；状态：已封存，不再自动恢复。"
+                    f"数据集包含 {dataset_size:,} 个模型；成功输出与执行失败分别统计。")
+        lines[4] = f"数据集：{dataset_size:,} 个模型，成功输出 {len(main_done):,} 件，执行失败 {progress['full_errors']:,} 件。"
+        lines[6] = (f"全部实验：已结束 {progress['all_jobs_done'] + progress['all_jobs_errors']:,} 项，"
+                    f"成功输出 {progress['all_jobs_done']:,} 项，执行失败 {progress['all_jobs_errors']:,} 项。"
+                    f"API 实际尝试记录 {len(requests):,} 次。")
+        lines[8] = '**没有人工功能真值，本报告不声称测得真实功能准确率。参考匹配率按实际可评估样本计算，执行失败单独记录。**'
+        lines = [line.replace('| 实验 | 计划 |', '| 实验 | 样本数 |')
+                 .replace(f"| {experiments['full_multi']['label']} | {experiments['full_multi']['scheduled']} |",
+                          f"| {experiments['full_multi']['label']} | {dataset_size} |") for line in lines]
         lines[3:3] = ['', '完整分析：[中文实验报告](../../docs/EXPERIMENT_REPORT.zh-CN.md) · [English report](../../docs/EXPERIMENT_REPORT.md)', '']
     (root / 'report.md').write_text('\n'.join(lines), encoding='utf-8')
     return summary

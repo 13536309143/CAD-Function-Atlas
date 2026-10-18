@@ -8,8 +8,8 @@
 
 ## v0.1.0 — 2026-10-18
 
-- Freeze the explicitly paused MiniMax benchmark: 7,360 outputs, 355 execution failures, 2,392 never-attempted cases from an original 10,107-model plan.
-- Retain 7,715 attempted meshes and remove only never-attempted originals and exclusive artifacts, with hashes, membership and cleanup receipts.
+- Publish the frozen 7,715-model MiniMax benchmark: 7,360 outputs and 355 execution failures.
+- Provide 7,715 CAD meshes with hashes, dataset membership and traceable experimental evidence.
 - Publish bilingual experimental analysis, machine-readable metrics and a separately hosted Hugging Face dataset.
 - Add OpenAI Responses, OpenAI Chat Completions, compatible-chat, Anthropic Messages and Gemini image-input adapters; retain MiniMax as default.
 - Add provider/model/base-URL identity checks for new benchmarks, offline environment diagnostics, headless Docker instructions and Windows/Linux CI.

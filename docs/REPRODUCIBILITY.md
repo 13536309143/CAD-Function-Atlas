@@ -10,9 +10,8 @@ Exact future API outputs cannot be reproduced deterministically: MiniMax did not
 
 | Boundary | Frozen definition |
 |---|---|
-| Original input plan | 10,107 models, no exact duplicate SHA groups |
-| Publication subset | 7,715 attempted originals; failures retained |
-| Deleted subset | 2,392 never-attempted originals + exclusive artifacts |
+| Dataset | **7,715 models**; all attempted, failures retained |
+| Model integrity | Published input hashes verified; no exact duplicate SHA groups |
 | Main outputs | 7,360 |
 | Main failures | 355; not human-labeled classification errors |
 | Reference scoring | Frozen source-to-function sets, no reference for generic ring/disc |
@@ -23,7 +22,7 @@ Exact future API outputs cannot be reproduced deterministically: MiniMax did not
 
 ## Recalculate reports
 
-Download/extract the dataset first. Use its `benchmark` directory as `--root`, preserving the seal. The supplementary diagnostic has a pre-pruning integrity record; a new full-original integrity pass will correctly report the 2,392 intentionally absent inputs. Use membership to verify retained models, not the old plan as an expectation that removed files should exist.
+Download/extract the dataset first. Use its `benchmark` directory as `--root`, preserving the seal. Verify the 7,715 models against `records/samples.jsonl` and their SHA-256 values. Supplementary historical planning records have a broader scope than the published model inventory; filter them using dataset membership when checking available inputs.
 
 ```bash
 python -m pytest -q

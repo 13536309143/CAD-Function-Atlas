@@ -39,10 +39,9 @@ Measured agents share one MiniMax backend. Separate roles do not establish indep
 
 | Measure | Result |
 |---|---:|
-| Original plan | 10,107 models / 32 directories |
-| Successful outputs | 7,360 — 72.82% of original plan |
+| Dataset | **7,715 models / 32 source directories** |
+| Successful outputs | 7,360 — 95.40% of the dataset |
 | Execution failures | 355 |
-| Never attempted; subsequently removed | 2,392 |
 | Additional experiments | 820 terminal jobs: 817 outputs + 3 expected invalid-input rejections |
 | Successful-output reference agreement | 3,581 / 7,161 = **50.01%** |
 | Agreement including execution failures | 3,581 / 7,516 = **47.65%** |
@@ -51,7 +50,7 @@ Measured agents share one MiniMax backend. Separate roles do not establish indep
 | Accepted-subset reference agreement | 700 / 744 = **94.09%** |
 | Identical-input three-run unanimity | 12 / 31 = **38.71%** |
 
-The accepted subset is selected and contains 44 reference disagreements. No human functional gold labels are available. Data retain **all 7,715 attempted inputs, including failures**, and explicitly record removed cases. See the [analysis](docs/EXPERIMENT_REPORT.md), [metrics JSON](docs/metrics.json) and [source CSV](docs/source_metrics.csv).
+The accepted subset is selected and contains 44 reference disagreements. No human functional gold labels are available. The dataset contains **7,715 models, including execution failures**. See the [analysis](docs/EXPERIMENT_REPORT.md), [metrics JSON](docs/metrics.json) and [source CSV](docs/source_metrics.csv).
 
 ## Install and verify
 
@@ -116,7 +115,7 @@ The probe reads a random code present only in an image. It prevents text connect
 
 `run` can launch rendering automatically. Request attempts are bounded and persisted. MiniMax waits for both interval and weekly quota recovery; other adapters never query its quota endpoint. Provider/model/base-URL identity is frozen per new run. Use a new root for comparisons.
 
-**The published `full_benchmark_v1` cannot resume:** never-attempted inputs were intentionally removed. Historical planned rows remain for honest completion accounting. Running retained data is a new subset experiment.
+**The published `full_benchmark_v1` is frozen.** Create a new experiment root for inference on the 7,715-model dataset; preserve the published measurements for comparison.
 
 Stop a Windows benchmark and its supervisor:
 

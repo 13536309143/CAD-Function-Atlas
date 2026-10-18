@@ -69,7 +69,7 @@ The Dockerfile copies only source files and requirements; `.env`, data, outputs 
 5. `benchmark_postprocess.py`: detailed paired/quality diagnostics and integrity checks, without inference.
 6. `evaluate_benchmark_human.py`: score explicitly supplied human labels; blank review rows never become truth.
 
-新实验必须创建新根目录，已有初始化目录不会被覆盖。更换供应商、模型或 base URL 需新建实验，避免混合证据。对 HF 保留子集运行属于新子集评测，不是原 10,107 件全量计划续跑。
+新实验必须创建新根目录，已有初始化目录不会被覆盖。更换供应商、模型或 base URL 需新建实验，避免混合证据。对这 7,715 个模型开展新实验时，应单独记录配置和结果。
 
 ## Pause, quota and supervision
 
@@ -87,7 +87,7 @@ For Linux, run the coordinator in the foreground and use Ctrl+C, or configure yo
 
 MiniMax interval/weekly quota at or below 1% pauses new work; quotas are polled every 180 seconds and both must exceed 2% before resuming. Rate limiting cools down for 60 seconds. Current code defers transient network/empty responses with a 10-second cooldown while retaining the three non-quota attempts per role and single schema-repair limits. Quota refusals remain in the global request budget. Authentication, unavailable balance and unrecognized resource failures can block and require operator action. Other providers do not expose MiniMax quota percentages and receive no fabricated recovery schedule.
 
-**v0.1.0 is intentionally sealed.** `FROZEN_RELEASE.json` blocks further inference on the pruned original root. The historical 355 failures are preserved; current retry improvements do not retroactively change results.
+**v0.1.0 is intentionally sealed.** `FROZEN_RELEASE.json` blocks further inference on the frozen benchmark root. The historical 355 failures are preserved; current retry improvements do not retroactively change results.
 
 ## Troubleshooting / 排查
 
@@ -99,6 +99,6 @@ MiniMax interval/weekly quota at or below 1% pauses new work; quotas are polled 
 | Empty content | Original response and finish/refusal fields; structured output length; avoid counting transport success as inference success |
 | Schema failure | Allowed function codes, cited view names, evidence and repair budget |
 | Frozen-root error | Expected for v0.1.0; initialize a new root |
-| Missing original inputs | Consult release membership; intentionally removed inputs are not corrupt downloads |
+| Input inventory mismatch | Check the 7,715-entry sample inventory and dataset membership; supplementary historical plans may reference other inputs |
 
 Diagnostics: run `python -m pip check`, `python -m pytest -q`, then the offline render check. Logs/SQLite belong in local `outputs/`, not Git. Never paste credentials into an issue.
