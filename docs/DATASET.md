@@ -23,12 +23,14 @@ The directory function sets are weak references, not human labels. Nine function
 | `benchmark/controlled_gallery.html` | Final refreshed controlled-comparison gallery |
 | `meshes/meshes-*.zip` | Retained original files; extract from dataset root into `data/` |
 | `renders/renders-*.zip` | Retained base/control/synthetic views; extract into `benchmark/assets/` |
-| `audit/requests.zip` | Per-request original response audits, without credentials/image base64 |
+| `audit/requests*.zip` | Per-request original response audit shards, without credentials/image base64 |
 | `audit/provenance.zip` | Historical execution source/config/manifest, cleanup evidence and job-role outputs |
 | `reports/` | Reports, charts, compact metrics and environment evidence |
 | `SHA256SUMS` | Integrity hashes of every published artifact except the checksum file itself |
 
 Shards use ZIP64 with bounded approximate sizes and ordinary ZIP extraction. There are no neural weights or credentials. The SQLite schema preserves original tables (`samples`, `assets`, `jobs`, `requests`, `state`, `events`) plus `release_membership`. A planned row with `retained=false` is evidence of incomplete coverage; its missing mesh is intentional.
+
+The request audit is split into smaller archives for reliable transfer. Extract every matching shard; their combined contents reproduce all 23,232 recorded request files under `benchmark/requests/`. Consult `SHA256SUMS` for the exact published filenames rather than assuming a single archive.
 
 ## Download
 
