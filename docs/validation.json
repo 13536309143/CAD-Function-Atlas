@@ -1,0 +1,18 @@
+{
+  "tests": {
+    "command": "python -m pytest -q",
+    "passed": 58,
+    "live_network_used": false
+  },
+  "environment": "Windows 11 / Python 3.14.7",
+  "geometry_and_offscreen_rendering": "passed",
+  "dependency_check": "python -m pip check passed",
+  "retained_input_integrity": {
+    "checked": 7715,
+    "mismatched": 0
+  },
+  "unattempted_removed": 2392,
+  "new_provider_live_evaluation": false,
+  "ci_configuration": "Windows/Linux, Python 3.12; see GitHub workflow for actual remote status",
+  "docker_validation": "recipe supplied; local Docker build not claimed"
+}

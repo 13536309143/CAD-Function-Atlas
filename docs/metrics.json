@@ -1,0 +1,212 @@
+{
+  "created": "2026-10-18T16:31:30+08:00",
+  "release": "v0.1.0",
+  "status": "paused_and_pruned_partial_benchmark",
+  "original_models": 10107,
+  "successful_models": 7360,
+  "execution_failures": 355,
+  "untested_models": 2392,
+  "successful_coverage": 0.7282081725536756,
+  "retained_attempted_models": 7715,
+  "reference_agreement_successful_only": 0.5000698226504678,
+  "reference_agreement_including_execution_failures": 0.47645023948908993,
+  "source_macro_reference_agreement_including_errors": 0.5667058863887696,
+  "reference_denominator_successful": 7161,
+  "reference_matches": 3581,
+  "reference_denominator_including_errors": 7516,
+  "single_agent_paired_reference_agreement": 0.4933668482055579,
+  "multi_agent_paired_delta_percentage_points": 0.670297444490997,
+  "auto_accept_count": 752,
+  "auto_accept_coverage_successful": 0.10217391304347827,
+  "auto_accept_coverage_attempted": 0.09747245625405056,
+  "auto_accept_reference_agreement": 0.9408602150537635,
+  "auto_accept_reference_n": 744,
+  "auto_accept_reference_matches": 700,
+  "status_counts": {
+    "accepted": 752,
+    "review_required": 6008,
+    "unknown": 600
+  },
+  "prediction_counts": {
+    "support_guidance": 1359,
+    "transmission_drive": 405,
+    "connection_fastening": 2498,
+    "fluid_control": 292,
+    "positioning_spacing": 1359,
+    "structural_support": 300,
+    "elastic_buffering": 77,
+    "operation_control": 249,
+    "unknown": 600,
+    "sealing_closure": 221
+  },
+  "execution_error_counts": {
+    "Per-role attempt/JSON repair limit reached": 18,
+    "The read operation timed out": 1,
+    "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)": 93,
+    "MiniMax returned no image understanding content": 226,
+    "Server disconnected without sending a response.": 5,
+    "[WinError 10054] 远程主机强迫关闭了一个现有的连接。": 10,
+    "[WinError 10051] 向一个无法连接的网络尝试了一个套接字操作。": 1,
+    "[Errno 11001] getaddrinfo failed": 1
+  },
+  "request_attempts": 23232,
+  "request_states": {
+    "complete": 22849,
+    "error": 383
+  },
+  "repeatability": {
+    "n_complete_triplets": 31,
+    "three_run_unanimity": 0.3870967741935484,
+    "mean_pairwise_agreement": 0.5268817204301075,
+    "note": "Fresh requests with identical prompts/images. Unknown-to-unknown agreement does not prove a useful classification."
+  },
+  "paired_controls": {
+    "appearance": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.6065573770491803,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.631578947368421,
+      "reference_gains": 4,
+      "reference_losses": 8
+    },
+    "format_glb": {
+      "n_paired": 31,
+      "primary_function_agreement_with_initial_baseline": 0.3225806451612903,
+      "n_reference_evaluable_paired": 29,
+      "paired_baseline_reference_rate": 0.6896551724137931,
+      "paired_variant_reference_rate": 0.41379310344827586,
+      "reference_gains": 1,
+      "reference_losses": 9
+    },
+    "format_stl": {
+      "n_paired": 31,
+      "primary_function_agreement_with_initial_baseline": 0.45161290322580644,
+      "n_reference_evaluable_paired": 29,
+      "paired_baseline_reference_rate": 0.6896551724137931,
+      "paired_variant_reference_rate": 0.5862068965517241,
+      "reference_gains": 3,
+      "reference_losses": 6
+    },
+    "geometry_only": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.01639344262295082,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.0,
+      "reference_gains": 0,
+      "reference_losses": 40
+    },
+    "image_only": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.47540983606557374,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.49122807017543857,
+      "reference_gains": 5,
+      "reference_losses": 17
+    },
+    "iso_pair": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.4918032786885246,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.45614035087719296,
+      "reference_gains": 4,
+      "reference_losses": 18
+    },
+    "low_resolution": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.5573770491803278,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.5614035087719298,
+      "reference_gains": 4,
+      "reference_losses": 12
+    },
+    "orthographic": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.47540983606557374,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.6140350877192983,
+      "reference_gains": 8,
+      "reference_losses": 13
+    },
+    "repeat_1": {
+      "n_paired": 31,
+      "primary_function_agreement_with_initial_baseline": 0.41935483870967744,
+      "n_reference_evaluable_paired": 29,
+      "paired_baseline_reference_rate": 0.6896551724137931,
+      "paired_variant_reference_rate": 0.5517241379310345,
+      "reference_gains": 3,
+      "reference_losses": 7
+    },
+    "repeat_2": {
+      "n_paired": 31,
+      "primary_function_agreement_with_initial_baseline": 0.5483870967741935,
+      "n_reference_evaluable_paired": 29,
+      "paired_baseline_reference_rate": 0.6896551724137931,
+      "paired_variant_reference_rate": 0.5517241379310345,
+      "reference_gains": 1,
+      "reference_losses": 5
+    },
+    "rotate_a": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.5737704918032787,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.6140350877192983,
+      "reference_gains": 5,
+      "reference_losses": 10
+    },
+    "rotate_b": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.6229508196721312,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.5964912280701754,
+      "reference_gains": 4,
+      "reference_losses": 10
+    },
+    "scale_translate": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.5245901639344263,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.5789473684210527,
+      "reference_gains": 4,
+      "reference_losses": 11
+    },
+    "single_iso": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.36065573770491804,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.42105263157894735,
+      "reference_gains": 1,
+      "reference_losses": 17
+    },
+    "view_shuffle": {
+      "n_paired": 61,
+      "primary_function_agreement_with_initial_baseline": 0.6885245901639344,
+      "n_reference_evaluable_paired": 57,
+      "paired_baseline_reference_rate": 0.7017543859649122,
+      "paired_variant_reference_rate": 0.6491228070175439,
+      "reference_gains": 4,
+      "reference_losses": 7
+    }
+  },
+  "geometry_health": {
+    "unique_ready_base_assets": 10114,
+    "not_watertight": 4496,
+    "volume_unavailable": 4497,
+    "with_duplicate_faces_removed": 869,
+    "with_invalid_elements_removed": 102,
+    "multiple_components": 1787,
+    "watertight": 5618,
+    "valid_volume": 5617
+  },
+  "human_verified_accuracy": null,
+  "warning": "All reported reference agreements use directory-derived weak labels. No human gold labels or true functional accuracy are available."
+}

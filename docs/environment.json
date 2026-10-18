@@ -1,0 +1,56 @@
+{
+  "python": "3.14.7",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "checks": {
+    "numpy": {
+      "ok": true,
+      "version": "2.5.4"
+    },
+    "trimesh": {
+      "ok": true,
+      "version": "4.12.2"
+    },
+    "pyvista": {
+      "ok": true,
+      "version": "0.49.1"
+    },
+    "vtk": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "pillow": {
+      "ok": true,
+      "version": "12.3.0"
+    },
+    "httpx": {
+      "ok": true,
+      "version": "0.28.1"
+    },
+    "scipy": {
+      "ok": true,
+      "version": "1.18.1"
+    },
+    "networkx": {
+      "ok": true,
+      "version": "3.7"
+    },
+    "matplotlib": {
+      "ok": true,
+      "version": "3.11.2"
+    },
+    "python-dotenv": {
+      "ok": true,
+      "version": "1.2.4"
+    },
+    "geometry": {
+      "ok": true,
+      "triangles": 12
+    },
+    "render": {
+      "ok": true,
+      "image": "outputs/release_environment_check/views/views.jpg"
+    }
+  },
+  "live_api_tested": false,
+  "ok": true
+}
