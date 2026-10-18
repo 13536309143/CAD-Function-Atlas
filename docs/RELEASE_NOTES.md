@@ -1,8 +1,10 @@
-# CAD Function Atlas v0.1.0
+# CAD Function Atlas v0.1.1
 
 工业 CAD 零部件功能分类与评测 / Multimodal functional classification and evaluation for industrial CAD meshes.
 
 This first research release freezes an intentionally stopped MiniMax experiment and publishes the software, bilingual analysis and retained evidence.
+
+Software patch v0.1.1 adds pinned Mesa/OSMesa setup for headless Windows CI after its missing OpenGL driver was exposed remotely. The render check remains enabled on both platforms. Dataset and experimental measurements remain frozen at v0.1.0; no additional inference was performed.
 
 ## Included
 
@@ -22,8 +24,8 @@ These are weak-reference measurements, **not human-verified functional accuracy*
 
 ## Downloads
 
-- `cad-function-atlas-v0.1.0.zip`: application source, tests, bilingual documentation and compact report assets.
-- `benchmark-snapshot-v0.1.0.zip`: portable database, tables, membership, environment evidence and reports; large meshes/renders are hosted separately.
+- `cad-function-atlas-v0.1.1.zip`: application source, tests, bilingual documentation and compact report assets.
+- `benchmark-snapshot-v0.1.1.zip`: portable database, tables, membership, environment evidence and reports; large meshes/renders are hosted separately. Experimental data remain v0.1.0.
 - `SHA256SUMS`: integrity hashes for the release assets.
 - Full retained data: [GeorgeWJJ/cad-function-atlas](https://huggingface.co/datasets/GeorgeWJJ/cad-function-atlas).
 

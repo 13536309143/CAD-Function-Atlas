@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1 — 2026-10-18
+
+- Install pinned PyVista/Mesa software OpenGL in Windows CI after the first remote run exposed the hosted runner's missing graphics driver.
+- Keep the full render diagnostic enabled on Windows and Linux; document the headless Windows graphics requirement.
+- Benchmark data and v0.1.0 measurements remain unchanged. v0.1.1 is a software/deployment patch.
+
 ## v0.1.0 — 2026-10-18
 
 - Freeze the explicitly paused MiniMax benchmark: 7,360 outputs, 355 execution failures, 2,392 never-attempted cases from an original 10,107-model plan.

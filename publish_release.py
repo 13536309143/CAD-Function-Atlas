@@ -12,7 +12,7 @@ import httpx
 
 ROOT = Path(__file__).resolve().parent
 REPOSITORY = '13536309143/llm'
-VERSION = 'v0.1.0'
+VERSION = 'v0.1.1'
 
 
 def github_headers():
@@ -85,7 +85,7 @@ def publish_github_release():
         existing = client.get(api + '/releases/tags/' + VERSION)
         if existing.status_code == 404:
             response = client.post(api + '/releases', json={'tag_name': VERSION, 'target_commitish': head,
-                'name': 'CAD Function Atlas v0.1.0 — Industrial CAD Function Benchmark', 'body': body,
+                'name': f'CAD Function Atlas {VERSION} — Industrial CAD Function Benchmark', 'body': body,
                 'draft': False, 'prerelease': True})
             response.raise_for_status();release = response.json()
         else:
@@ -94,8 +94,9 @@ def publish_github_release():
         if not upload.startswith('https://uploads.github.com/'):
             raise ValueError('Unexpected release-upload host')
         names = {x['name'] for x in release.get('assets', [])}
+        expected_names = {f'cad-function-atlas-{VERSION}.zip', f'benchmark-snapshot-{VERSION}.zip', 'SHA256SUMS'}
         for path in sorted((ROOT / 'dist' / 'releases').iterdir()):
-            if not path.is_file() or path.name in names:
+            if not path.is_file() or path.name in names or path.name not in expected_names:
                 continue
             with path.open('rb') as stream:
                 result = client.post(upload, params={'name': path.name}, content=stream,

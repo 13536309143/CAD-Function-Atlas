@@ -8,6 +8,8 @@ The release was actually verified on Windows 11, Python 3.14.7, Trimesh 4.12.2, 
 
 Linux file locking uses `fcntl`; Windows uses `msvcrt`. Child-process window suppression is applied only when available. CI exercises Windows/Linux on Python 3.12. An actual green workflow is required before claiming remote validation; Docker instructions alone are not proof that an image was built or tested.
 
+Bare Windows cloud runners do not provide the desktop OpenGL context used by the locally verified machine. CI installs Mesa software rendering through the [PyVista headless-display action](https://github.com/pyvista/setup-headless-display-action/tree/c103a2ff45650d38cb71684b5dc6cdfeb9442c79), pinned to v5.1.0's commit. It configures OSMesa and `LP_NUM_THREADS=0`. The rendering check remains enabled on both platforms. For a headless Windows deployment, provide working graphics drivers or an equivalent Mesa/OSMesa installation and rerun `cad_doctor.py --render`.
+
 本机实测环境与 CI 目标环境分开记录。新电脑先运行离线诊断，不需要先配置 API。平台不兼容时不要把依赖导入成功当作 VTK 已能渲染。
 
 ## Windows PowerShell
